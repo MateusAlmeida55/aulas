@@ -71,3 +71,10 @@ penguins%>%
   group_split(species) %>%
   purrr::map(~cor(.x$bill_length_mm, .x$bill_depth_mm, 
                   use="na.or.complete", method="pearson"))
+  # Op2
+
+library(correlation)
+
+penguins %>% dplyr::group_by(species) %>% 
+  select(bill_length_mm, bill_depth_mm) %>%
+  correlation()
